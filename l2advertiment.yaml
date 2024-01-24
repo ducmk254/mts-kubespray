@@ -1,0 +1,8 @@
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: example # thay đổi tên khác nếu cần thiết
+  namespace: metallb-system
+spec:
+  ipAddressPools:
+    - first-pool # tên của ip-pool đã khai báo trong IPAddressPool.yaml
