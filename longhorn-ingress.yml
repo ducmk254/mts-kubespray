@@ -18,8 +18,13 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
 spec:
   ingressClassName: nginx
+  tls:
+    - hosts:
+      - longhorn.mutosi.com
+      secretName: mts-cert-dev
   rules:
-  - http:
+  - host: longhorn.mutosi.com
+    http:
       paths:
       - pathType: Prefix
         path: "/"
@@ -28,4 +33,3 @@ spec:
             name: longhorn-frontend
             port:
               number: 80
-    host: longhorn.mutosi.com
